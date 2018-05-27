@@ -14,6 +14,7 @@ public:
    virtual void codingText(std::string& codingText) override;
    virtual void decodingText(std::string& decodingText) override;
 
+   virtual const char* getName() const override { return "Vigenere"; }
 private :
    void initKey();
 

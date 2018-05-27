@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "ICodingProcessor.hpp"
 #include "CAtbashCoding.hpp"
 #include "CGronsfeldCoding.hpp"
 #include "CVigenereCoding.hpp"
@@ -7,88 +8,36 @@
 
 using namespace std;
 
-void checkAbashCoding();
-//void checkPolibiaCoding();
-void checkGroverCoding();
-void checkVigenerCoding();
+void checkCipherProcessor(ICodingProcessor* cipherProcessor);
 
 int main()
 {
    setlocale(LC_ALL, "russian");
    system("cls");
 
-   checkVigenerCoding();
+   ICodingProcessor* vignere = new CVigenereCoding();
+
+   checkCipherProcessor(vignere);
+
+   delete vignere;
+
    return 0;
 }
 
-void checkAbashCoding()
+void checkCipherProcessor(ICodingProcessor* cipherProcessor)
 {
-   std::cout <<"Start Abash coding test : \n";
-   CAtbashCoding Abashcoder;
+   std::cout <<"Start " << cipherProcessor->getName() << " coding test : \n";
    std::string text;
+
    cout << "Input coding text : ";
    cin >> text;
    cout << "\n Your text : " << text.c_str() <<"\n";
 
-   Abashcoder.codingText(text);
+   cipherProcessor->codingText(text);
 
    cout << "\n Your coding text : " << text.c_str() <<"\n";
 
-   Abashcoder.decodingText(text);
-
-   cout << "\n Your decoding text : " << text.c_str() <<"\n";
-}
-
-//void checkPolibiaCoding()
-//{
-//   std::cout <<"Start Polibia coding test : \n";
-//   CPolibiiCoding polibiCoder;
-//   std::string text;
-//   cout << "Input coding text : ";
-//   cin >> text;
-//   cout << "\n Your text : " << text.c_str() <<"\n";
-
-//   polibiCoder.codingText(text);
-
-//   cout << "\n Your coding text : " << text.c_str() <<"\n";
-
-//   polibiCoder.decodingText(text);
-
-//   cout << "\n Your decoding text : " << text.c_str() <<"\n";
-//}
-
-void checkGroverCoding()
-{
-   std::cout <<"Start Gronsfeld coding test : \n";
-   CGronsfeldCoding groverCoder;
-   std::string text;
-   cout << "Input coding text : ";
-   cin >> text;
-   cout << "\n Your text : " << text.c_str() <<"\n";
-
-   groverCoder.codingText(text);
-
-   cout << "\n Your coding text : " << text.c_str() <<"\n";
-
-   groverCoder.decodingText(text);
-
-   cout << "\n Your decoding text : " << text.c_str() <<"\n";
-}
-
-void checkVigenerCoding()
-{
-   std::cout <<"Start Vigener coding test : \n";
-   CVigenereCoding vigenerCoder;
-   std::string text;
-   cout << "Input coding text : ";
-   cin >> text;
-   cout << "\n Your text : " << text.c_str() <<"\n";
-
-   vigenerCoder.codingText(text);
-
-   cout << "\n Your coding text : " << text.c_str() <<"\n";
-
-   vigenerCoder.decodingText(text);
+   cipherProcessor->decodingText(text);
 
    cout << "\n Your decoding text : " << text.c_str() <<"\n";
 }

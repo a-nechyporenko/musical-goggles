@@ -20,6 +20,8 @@ public:
    virtual void codingText(std::string& text) override;
    virtual void decodingText(std::string& text) override;
 
+   virtual const char* getName() const override { return "Atbash"; }
+
    char codingLetter(char letter);
    char decodingLetter(char letter);
 
