@@ -1,25 +1,55 @@
 #include <iostream>
 #include <string>
 #include "CAtbashCoding.hpp"
+#include "CPolibiiCoding.hpp"
 
 using namespace std;
 
+void checkAbashCoding();
+void checkPolibiaCoding();
+
 int main()
 {
-   std::cout <<"Start coding test : \n";
-   CAtbashCoding coder;
+   setlocale(LC_ALL, "russian");
+   system("cls");
+
+   checkPolibiaCoding();
+   return 0;
+}
+
+void checkAbashCoding()
+{
+
+   std::cout <<"Start Abash coding test : \n";
+   CAtbashCoding Abashcoder;
    std::string text;
    cout << "Input coding text : ";
    cin >> text;
    cout << "\n Your text : " << text.c_str() <<"\n";
 
-   coder.codingText(text);
+   Abashcoder.codingText(text);
 
    cout << "\n Your coding text : " << text.c_str() <<"\n";
 
-   coder.decodingText(text);
+   Abashcoder.decodingText(text);
 
    cout << "\n Your decoding text : " << text.c_str() <<"\n";
+}
 
-   return 0;
+void checkPolibiaCoding()
+{
+   std::cout <<"Start Polibia coding test : \n";
+   CPolibiiCoding polibiCoder;
+   std::string text;
+   cout << "Input coding text : ";
+   cin >> text;
+   cout << "\n Your text : " << text.c_str() <<"\n";
+
+   polibiCoder.codingText(text);
+
+   cout << "\n Your coding text : " << text.c_str() <<"\n";
+
+   polibiCoder.decodingText(text);
+
+   cout << "\n Your decoding text : " << text.c_str() <<"\n";
 }

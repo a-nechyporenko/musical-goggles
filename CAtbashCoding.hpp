@@ -1,10 +1,11 @@
 #ifndef ATBASHCODING_HPP
 #define ATBASHCODING_HPP
 
+#include"ICodingProcessor.hpp"
 #include <string>
 #include <map>
 
-class CAtbashCoding
+class CAtbashCoding : public ICodingProcessor
 {
 private:
    enum class eCodingMod
@@ -16,8 +17,8 @@ private:
 public:
    CAtbashCoding();
 
-   void codingText(std::string& text);
-   void decodingText(std::string& text);
+   virtual void codingText(std::string& text) override;
+   virtual void decodingText(std::string& text) override;
 
    char codingLetter(char letter);
    char decodingLetter(char letter);
