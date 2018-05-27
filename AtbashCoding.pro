@@ -6,8 +6,10 @@ CONFIG -= qt
 SOURCES += \
         main.cpp \
     CAtbashCoding.cpp \
-    IAlphabet.cpp
+    IAlphabet.cpp \
+    CGronsfeldCoding.cpp
 
 HEADERS += \
     CAtbashCoding.hpp \
-    IAlphabet.hpp
+    IAlphabet.hpp \
+    CGronsfeldCoding.hpp

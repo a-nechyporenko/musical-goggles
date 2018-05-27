@@ -1,25 +1,26 @@
 #include <iostream>
 #include <string>
 #include "CAtbashCoding.hpp"
-#include "CPolibiiCoding.hpp"
+#include "CGronsfeldCoding.hpp"
+//#include "CPolibiiCoding.hpp"
 
 using namespace std;
 
 void checkAbashCoding();
-void checkPolibiaCoding();
+//void checkPolibiaCoding();
+void checkGroverCoding();
 
 int main()
 {
    setlocale(LC_ALL, "russian");
    system("cls");
 
-   checkPolibiaCoding();
+   checkGroverCoding();
    return 0;
 }
 
 void checkAbashCoding()
 {
-
    std::cout <<"Start Abash coding test : \n";
    CAtbashCoding Abashcoder;
    std::string text;
@@ -36,20 +37,38 @@ void checkAbashCoding()
    cout << "\n Your decoding text : " << text.c_str() <<"\n";
 }
 
-void checkPolibiaCoding()
+//void checkPolibiaCoding()
+//{
+//   std::cout <<"Start Polibia coding test : \n";
+//   CPolibiiCoding polibiCoder;
+//   std::string text;
+//   cout << "Input coding text : ";
+//   cin >> text;
+//   cout << "\n Your text : " << text.c_str() <<"\n";
+
+//   polibiCoder.codingText(text);
+
+//   cout << "\n Your coding text : " << text.c_str() <<"\n";
+
+//   polibiCoder.decodingText(text);
+
+//   cout << "\n Your decoding text : " << text.c_str() <<"\n";
+//}
+
+void checkGroverCoding()
 {
-   std::cout <<"Start Polibia coding test : \n";
-   CPolibiiCoding polibiCoder;
+   std::cout <<"Start Gronsfeld coding test : \n";
+   CGronsfeldCoding groverCoder;
    std::string text;
    cout << "Input coding text : ";
    cin >> text;
    cout << "\n Your text : " << text.c_str() <<"\n";
 
-   polibiCoder.codingText(text);
+   groverCoder.codingText(text);
 
    cout << "\n Your coding text : " << text.c_str() <<"\n";
 
-   polibiCoder.decodingText(text);
+   groverCoder.decodingText(text);
 
    cout << "\n Your decoding text : " << text.c_str() <<"\n";
 }
