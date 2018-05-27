@@ -7,9 +7,11 @@ SOURCES += \
         main.cpp \
     CAtbashCoding.cpp \
     IAlphabet.cpp \
-    CGronsfeldCoding.cpp
+    CGronsfeldCoding.cpp \
+    CVigenereCoding.cpp
 
 HEADERS += \
     CAtbashCoding.hpp \
     IAlphabet.hpp \
-    CGronsfeldCoding.hpp
+    CGronsfeldCoding.hpp \
+    CVigenereCoding.hpp

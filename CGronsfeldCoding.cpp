@@ -50,15 +50,16 @@ void CGronsfeldCoding::processingText(std::string& text,CGronsfeldCoding::eMod m
 char CGronsfeldCoding::proccesingLetter(char letter, int key, CGronsfeldCoding::eMod mod)
 {
    bool isUpper = false;
+
    if(true == std::isupper(letter))
    {
       letter = std::tolower(letter);
       isUpper = true;
    }
+
    auto LetterPos = mAlphabet.find(letter);
    static const int ALPHABET_SIZE = mAlphabet.size();
 
-   char processingLetter = ' ';
    int shift = 0;
 
    switch (mod)

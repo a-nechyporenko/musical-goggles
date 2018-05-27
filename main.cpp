@@ -2,6 +2,7 @@
 #include <string>
 #include "CAtbashCoding.hpp"
 #include "CGronsfeldCoding.hpp"
+#include "CVigenereCoding.hpp"
 //#include "CPolibiiCoding.hpp"
 
 using namespace std;
@@ -9,13 +10,14 @@ using namespace std;
 void checkAbashCoding();
 //void checkPolibiaCoding();
 void checkGroverCoding();
+void checkVigenerCoding();
 
 int main()
 {
    setlocale(LC_ALL, "russian");
    system("cls");
 
-   checkGroverCoding();
+   checkVigenerCoding();
    return 0;
 }
 
@@ -69,6 +71,24 @@ void checkGroverCoding()
    cout << "\n Your coding text : " << text.c_str() <<"\n";
 
    groverCoder.decodingText(text);
+
+   cout << "\n Your decoding text : " << text.c_str() <<"\n";
+}
+
+void checkVigenerCoding()
+{
+   std::cout <<"Start Vigener coding test : \n";
+   CVigenereCoding vigenerCoder;
+   std::string text;
+   cout << "Input coding text : ";
+   cin >> text;
+   cout << "\n Your text : " << text.c_str() <<"\n";
+
+   vigenerCoder.codingText(text);
+
+   cout << "\n Your coding text : " << text.c_str() <<"\n";
+
+   vigenerCoder.decodingText(text);
 
    cout << "\n Your decoding text : " << text.c_str() <<"\n";
 }
