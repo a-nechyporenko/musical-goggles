@@ -10,7 +10,11 @@ SOURCES += \
     CGronsfeldCoding.cpp \
     CVigenereCoding.cpp \
     CTrisemusCoding.cpp \
-    LetterCoord.cpp
+    LetterCoord.cpp \
+    CCesarCipher.cpp \
+    CEnglish.cpp \
+    IAlphabet.cpp \
+    ICryptographer.cpp
 
 HEADERS += \
     CAtbashCoding.hpp \
@@ -18,4 +22,8 @@ HEADERS += \
     CGronsfeldCoding.hpp \
     CVigenereCoding.hpp \
     CTrisemusCoding.hpp \
-    LetterCoord.hpp
+    LetterCoord.hpp \
+    CCesarCipher.hpp \
+    CEnglish.hpp \
+    IAlphabet.hpp \
+    ICryptographer.hpp
