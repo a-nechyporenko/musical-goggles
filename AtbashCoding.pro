@@ -10,7 +10,8 @@ SOURCES += \
     CGronsfeldCoding.cpp \
     CVigenereCoding.cpp \
     CTrisemusCoding.cpp \
-    LetterCoord.cpp
+    LetterCoord.cpp \
+    CUserInterface.cpp
 
 HEADERS += \
     CAtbashCoding.hpp \
@@ -18,4 +19,6 @@ HEADERS += \
     CGronsfeldCoding.hpp \
     CVigenereCoding.hpp \
     CTrisemusCoding.hpp \
-    LetterCoord.hpp
+    LetterCoord.hpp \
+    CUserInterface.hpp \
+    Helper.hpp
