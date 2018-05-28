@@ -10,7 +10,12 @@ SOURCES += \
     CVigenereCoding.cpp \
     CTrisemusCoding.cpp \
     LetterCoord.cpp \
-    CUserInterface.cpp
+    CUserInterface.cpp \
+    CCesarCipher.cpp \
+    CEnglish.cpp \
+    IAlphabet.cpp \
+    ICryptographer.cpp
+
 
 HEADERS += \
     CAtbashCoding.hpp \
@@ -19,4 +24,9 @@ HEADERS += \
     CTrisemusCoding.hpp \
     LetterCoord.hpp \
     CUserInterface.hpp \
-    Helper.hpp
+    Helper.hpp \
+    CCesarCipher.hpp \
+    CEnglish.hpp \
+    IAlphabet.hpp \
+    ICryptographer.hpp
+
