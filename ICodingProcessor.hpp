@@ -12,7 +12,6 @@ public:
    virtual void codingText(std::string& codingText) = 0;
    virtual void decodingText(std::string& decodingText) = 0;
    virtual const char* getName() const = 0;
-
 };
 
 #endif // ICODINGPROCESSOR_HPP

@@ -7,7 +7,7 @@ class CVigenereCoding : public ICodingProcessor
 {
 public:
    CVigenereCoding();
-   explicit CVigenereCoding(const std::string& key);
+   explicit CVigenereCoding(const std::string& key_);
 
    virtual ~CVigenereCoding() {}
 

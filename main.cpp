@@ -4,6 +4,7 @@
 #include "CAtbashCoding.hpp"
 #include "CGronsfeldCoding.hpp"
 #include "CVigenereCoding.hpp"
+#include "CTrisemusCoding.hpp"
 //#include "CPolibiiCoding.hpp"
 
 using namespace std;
@@ -15,7 +16,7 @@ int main()
    setlocale(LC_ALL, "russian");
    system("cls");
 
-   ICodingProcessor* vignere = new CVigenereCoding();
+   ICodingProcessor* vignere = new CTrisemusCoding();
 
    checkCipherProcessor(vignere);
 
