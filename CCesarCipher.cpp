@@ -1,31 +1,51 @@
 #include "CCesarCipher.hpp"
 #include <iostream>
 
-nCesar::CCesarCipher::CCesarCipher(std::shared_ptr<IAlphabet> alphabet, const int offset) :
-	mOffset(offset)
+nCesar::CCesarCipher::CCesarCipher(std::shared_ptr<IAlphabet> alphabet)
+   : mOffset(0)
 	, mKey(alphabet->symbolSequence())
 	, mDec(alphabet->symbolSequence())
+   , mAlphabet(alphabet)
 {
-	addAlphabet(alphabet);
+   addAlphabet(alphabet);
+}
+
+nCesar::CCesarCipher::CCesarCipher(std::shared_ptr<IAlphabet> alphabet, const int offset)
+   : mOffset(offset)
+   , mKey(alphabet->symbolSequence())
+   , mDec(alphabet->symbolSequence())
+   , mAlphabet(alphabet)
+{
+   addAlphabet(alphabet);
 }
 
 nCesar::CCesarCipher::~CCesarCipher()
 {
 }
 
-void nCesar::CCesarCipher::decipher(std::vector<char>& context)
+void nCesar::CCesarCipher::init()
 {
-	for (int i = 0; i < context.size(); ++i)
+   int inputKey(0);
+   system("cls");
+   std::cout << "Please enter cypher key : ";
+   std::cin >> inputKey;
+   setOffset(inputKey);
+   addAlphabet(mAlphabet);
+}
+
+void nCesar::CCesarCipher::decodingText(std::string& decodingText)
+{
+   for (int i = 0; i < decodingText.size(); ++i)
 	{
-		context[i] = mKey[context[i]];
+      decodingText[i] = mKey[decodingText[i]];
 	}
 }
 
-void nCesar::CCesarCipher::cipher(std::vector<char>& context)
+void nCesar::CCesarCipher::codingText(std::string& codingText)
 {	
-	for (int i = 0; i < context.size(); ++i)
+   for (int i = 0; i < codingText.size(); ++i)
 	{
-		context[i] = mDec[context[i]];
+      codingText[i] = mDec[codingText[i]];
 	}
 }
 

@@ -13,8 +13,7 @@ SOURCES += \
     CUserInterface.cpp \
     CCesarCipher.cpp \
     CEnglish.cpp \
-    IAlphabet.cpp \
-    ICryptographer.cpp
+    IAlphabet.cpp
 
 
 HEADERS += \
@@ -28,5 +27,5 @@ HEADERS += \
     CCesarCipher.hpp \
     CEnglish.hpp \
     IAlphabet.hpp \
-    ICryptographer.hpp
+    ICodingProcessor.hpp
 

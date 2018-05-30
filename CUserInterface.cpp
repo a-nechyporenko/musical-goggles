@@ -5,18 +5,21 @@
 #include "CGronsfeldCoding.hpp"
 #include "CVigenereCoding.hpp"
 #include "CTrisemusCoding.hpp"
+#include "CCesarCipher.hpp"
+#include "CEnglish.hpp"
 
 #include <iostream>
 #include <string>
 #include <conio.h>
+#include <memory>
 
 CUserInterface::CUserInterface()
    : mParagraph(nConstants::CESAR_CRIPHER)
-   , pTrisemusCipher(new CTrisemusCoding)
-//   , pCesarCipher(new CCesarCoding)
-   , pVigenerCipher(new CVigenereCoding)
-   , pGronsfelddCipher(new CGronsfeldCoding)
-   , pAtbashCipher(new CAtbashCoding)
+   , pTrisemusCipher(new CTrisemusCoding())
+   , pCesarCipher(new nCesar::CCesarCipher(std::make_shared<nCesar::CEnglish>()))
+   , pVigenerCipher(new CVigenereCoding())
+   , pGronsfelddCipher(new CGronsfeldCoding())
+   , pAtbashCipher(new CAtbashCoding())
 {
 }
 
@@ -167,7 +170,7 @@ void CUserInterface::outParagraph()
       case nConstants::EXIT:
       {
          system("cls");
-         std::cout << "Finish application \n" ;
+         std::cout << "Closing application ... \n" ;
          exit(0);
       }
       break;
