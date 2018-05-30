@@ -8,7 +8,6 @@ CTrisemusCoding::CTrisemusCoding()
    , COUNT_TABLE_COLUM(5)
    , COUNT_TABLE_LINES(5)
 {
-   init();
 }
 
 void CTrisemusCoding::codingText(std::string& codingText)

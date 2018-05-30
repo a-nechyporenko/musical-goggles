@@ -17,6 +17,8 @@ private:
 public:
    CAtbashCoding();
 
+   virtual void init() override;
+
    virtual void codingText(std::string& text) override;
    virtual void decodingText(std::string& text) override;
 

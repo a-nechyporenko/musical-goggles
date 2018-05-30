@@ -13,13 +13,14 @@ public:
    CTrisemusCoding();
    virtual ~CTrisemusCoding(){}
 
+   virtual void init() override;
+
    virtual void codingText(std::string& codingText) override;
    virtual void decodingText(std::string& decodingText) override;
 
    virtual const char* getName() const override { return "Trisemus"; }
 
 private:
-   void init();
    void initKey();
    void initCipherTable();
 

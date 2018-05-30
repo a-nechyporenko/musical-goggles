@@ -19,6 +19,11 @@ private:
 
 private:
    int mParagraph;
+   ICodingProcessor* pTrisemusCipher;
+   ICodingProcessor* pCesarCipher;
+   ICodingProcessor* pVigenerCipher;
+   ICodingProcessor* pGronsfelddCipher;
+   ICodingProcessor* pAtbashCipher;
 };
 
 #endif // C_USER_INTERFACE_HPP

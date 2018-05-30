@@ -4,13 +4,21 @@
 CVigenereCoding::CVigenereCoding()
    : mKey()
 {
-   initKey();
+
 }
 
 CVigenereCoding::CVigenereCoding(const std::string& key)
    : mKey(key)
 {
 
+}
+
+void CVigenereCoding::init()
+{
+   if( true == mKey.empty())
+   {
+      initKey();
+   }
 }
 
 void CVigenereCoding::codingText(std::string& codingText)

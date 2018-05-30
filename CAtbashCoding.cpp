@@ -6,6 +6,10 @@ CAtbashCoding::CAtbashCoding()
    , decodingMap()
    , codingAlphabet("zyxwvutsrqponmlkjihgfedcba")
 {
+}
+
+void CAtbashCoding::init()
+{
    initMapsForCoding();
 }
 

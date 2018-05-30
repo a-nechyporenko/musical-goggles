@@ -5,35 +5,45 @@
 #include "CGronsfeldCoding.hpp"
 #include "CVigenereCoding.hpp"
 #include "CTrisemusCoding.hpp"
-//#include "CPolibiiCoding.hpp"
 
 #include <iostream>
 #include <string>
+#include <conio.h>
 
 CUserInterface::CUserInterface()
-   : mParagraph(nConstants::FIRST_PARAGRAPH)
+   : mParagraph(nConstants::CESAR_CRIPHER)
+   , pTrisemusCipher(new CTrisemusCoding)
+//   , pCesarCipher(new CCesarCoding)
+   , pVigenerCipher(new CVigenereCoding)
+   , pGronsfelddCipher(new CGronsfeldCoding)
+   , pAtbashCipher(new CAtbashCoding)
 {
 }
 
 CUserInterface::~CUserInterface()
 {
+   delete pTrisemusCipher;
+   delete pCesarCipher;
+   delete pVigenerCipher;
+   delete pGronsfelddCipher;
+   delete pAtbashCipher;
 }
 
 void CUserInterface::startMenu()
 {
    char button = '0';
-   mParagraph = nConstants::FIRST_PARAGRAPH;
+   mParagraph = nConstants::CESAR_CRIPHER;
 
    std::cout << "Cesar cripher <---\n"
-             << "Gronsfeld cripher\n"
-             << "Vigener cripher\n"
-             << "Trisemus cripher"
-             << "Atbash cripher"
-             << "Exit";
+             << "Gronsfeld cripher \n"
+             << "Vigener cripher \n"
+             << "Trisemus cripher \n"
+             << "Atbash cripher \n"
+             << "Exit \n";
 
    while (button != nConstants::ENTER)
    {
-      button = getch();
+      button = _getch();
 
       switch (button)
       {
@@ -56,7 +66,7 @@ void CUserInterface::outMenu()
 {
    switch (mParagraph)
    {
-   case nConstants::FIRST_PARAGRAPH: system("cls");
+   case nConstants::CESAR_CRIPHER: system("cls");
       std::cout << "Cesar cripher <---\n"
          << "Gronsfeld cripher\n"
          << "Vigener cripher\n"
@@ -64,7 +74,7 @@ void CUserInterface::outMenu()
          << "Atbash cripher\n"
          << "Exit\n";
       break;
-   case nConstants::SECOND_PARAGRAPH: system("cls");
+   case nConstants::GRONSFELD_CIPHER: system("cls");
       std::cout << "Cesar cripher\n"
          << "Gronsfeld cripher <---\n"
          << "Vigener cripher\n"
@@ -72,7 +82,7 @@ void CUserInterface::outMenu()
          << "Atbash cripher\n"
          << "Exit\n";
       break;
-   case nConstants::THIRD_PARAGRAPH: system("cls");
+   case nConstants::VIGENER_CIPHER: system("cls");
       std::cout << "Cesar cripher\n"
          << "Gronsfeld cripher\n"
          << "Vigener cripher <---\n"
@@ -80,7 +90,7 @@ void CUserInterface::outMenu()
          << "Atbash cripher\n"
          << "Exit\n";
       break;
-   case nConstants::FOURTH_PARAGRAPH: system("cls");
+   case nConstants::TRISEMUS_CIPHER: system("cls");
       std::cout << "Cesar cripher\n"
          << "Gronsfeld cripher\n"
          << "Vigener cripher\n"
@@ -88,7 +98,7 @@ void CUserInterface::outMenu()
          << "Atbash cripher\n"
          << "Exit\n";
       break;
-      case nConstants::FIFTH_PARAGRAPH: system("cls");
+      case nConstants::ATBASH_CIPHER: system("cls");
          std::cout << "Cesar cripher\n"
             << "Gronsfeld cripher\n"
             << "Vigener cripher\n"
@@ -96,7 +106,7 @@ void CUserInterface::outMenu()
             << "Atbash cripher <---\n"
             << "Exit\n";
          break;
-      case nConstants::SIXTH_PARAGRAPH: system("cls");
+      case nConstants::EXIT: system("cls");
          std::cout << "Cesar cripher\n"
             << "Gronsfeld cripher\n"
             << "Vigener cripher\n"
@@ -110,13 +120,13 @@ void CUserInterface::outMenu()
 
 void CUserInterface::checkParagraph()
 {
-   if (mParagraph < nConstants::FIRST_PARAGRAPH)
+   if (mParagraph < nConstants::CESAR_CRIPHER)
    {
-      mParagraph = nConstants::SIXTH_PARAGRAPH;
+      mParagraph = nConstants::EXIT;
    }
-   if (mParagraph > nConstants::SIXTH_PARAGRAPH)
+   if (mParagraph > nConstants::EXIT)
    {
-      mParagraph = nConstants::FIRST_PARAGRAPH;
+      mParagraph = nConstants::CESAR_CRIPHER;
    }
 }
 
@@ -124,54 +134,67 @@ void CUserInterface::outParagraph()
 {
    switch (mParagraph)
    {
-      case nConstants::FIRST_PARAGRAPH:
+      case nConstants::CESAR_CRIPHER:
       {
          system("cls");
+         demonstrateCripher(pCesarCipher);
       }
       break;
-      case nConstants::SECOND_PARAGRAPH:
+      case nConstants::GRONSFELD_CIPHER:
       {
          system("cls");
+         demonstrateCripher(pGronsfelddCipher);
       }
       break;
-      case nConstants::THIRD_PARAGRAPH:
+      case nConstants::VIGENER_CIPHER:
       {
          system("cls");
+         demonstrateCripher(pVigenerCipher);
       }
       break;
-      case nConstants::FOURTH_PARAGRAPH:
+      case nConstants::TRISEMUS_CIPHER:
       {
          system("cls");
+         demonstrateCripher(pTrisemusCipher);
       }
       break;
-      case nConstants::FIFTH_PARAGRAPH:
+      case nConstants::ATBASH_CIPHER:
       {
          system("cls");
+         demonstrateCripher(pAtbashCipher);
       }
       break;
-      case nConstants::SIXTH_PARAGRAPH:
+      case nConstants::EXIT:
       {
+         system("cls");
+         std::cout << "Finish application \n" ;
          exit(0);
       }
       break;
       default: break;
    }
+   system("pause");
+   system("cls");
+   startMenu();
 }
 
 void CUserInterface::demonstrateCripher(ICodingProcessor* cripher)
 {
    std::cout <<"Start " << cripher->getName() << " coding test : \n";
+
+   cripher->init();
+
    std::string text;
 
-   cout << "Input coding text : ";
-   cin >> text;
-   cout << "\n Your text : " << text.c_str() <<"\n";
+   std::cout << "Input coding text : ";
+   std::cin >> text;
+   std::cout << "\n Your text : " << text.c_str() <<"\n";
 
    cripher->codingText(text);
 
-   cout << "\n Your coding text : " << text.c_str() <<"\n";
+   std::cout << "\n Your coding text : " << text.c_str() <<"\n";
 
    cripher->decodingText(text);
 
-   cout << "\n Your decoding text : " << text.c_str() <<"\n";
+   std::cout << "\n Your decoding text : " << text.c_str() <<"\n";
 }

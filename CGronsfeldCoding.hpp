@@ -17,13 +17,14 @@ public:
    CGronsfeldCoding();
    virtual ~CGronsfeldCoding(){}
 
+   virtual void init() override;
+
    virtual void codingText(std::string& codingText) override;
    virtual void decodingText(std::string& decodingText) override;
 
    virtual const char* getName() const override { return "Gronsfeld"; }
 
 private:
-   void init();
    void processingText(std::string& text,CGronsfeldCoding::eMod mod);
    char proccesingLetter(char letter, int key, eMod mod);
 

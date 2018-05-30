@@ -5,7 +5,6 @@ CGronsfeldCoding::CGronsfeldCoding()
    : mAlphabet("abcdefghijklmnopqrstuvwxyz")
    , mKeyList()
 {
-   init();
 }
 
 void CGronsfeldCoding::init()
